@@ -32,7 +32,7 @@ const Home = () => {
 
   return(
     <div className='sm:p-4 p-2 homepage'>
-      <h1 className='text-4xl font-bold mb-4 text-white px-3 md:px-0 '> Search Recipes</h1>
+      <h1 className='text-4xl font-bold mb-4 text-white px-3 md:px-0 pt-28 '> Search Recipes</h1>
       <form onSubmit={handleSearch} className='mb-4 flex gap-6 pt-5'>
         <input
          type="text"

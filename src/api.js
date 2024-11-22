@@ -1,3 +1,4 @@
+
 const API_KEY = import.meta.env.VITE_SPOONACULAR_API_KEY;
 const BASE_URL = 'https://api.spoonacular.com/recipes';
 
@@ -28,3 +29,30 @@ export const fetchRecipeDetails = async (id) =>{
         
     }
 }
+
+// export const fetchSimilarRecipes = async (id) => {
+//     try {
+//       const response = await axios.get(`${BASE_URL}/${id}/similar`, {
+//         params: { apiKey: API_KEY, number: 5 }, // Limit to 5 similar recipes
+//       });
+//       return response.data;
+//     } catch (error) {
+//       console.error('Error fetching similar recipes:', error);
+//       return [];
+//     }
+//   };
+
+// export const fetchSimilarRecipes = async (id) => {
+//     try {
+//       const response = await fetch(`${BASE_URL}/${id}/similar?apiKey=${API_KEY}&number=5`);
+      
+//       if (!response.ok) {
+//         throw new Error('Network response was not ok');
+//       }
+      
+//       return await response.json();
+//     } catch (error) {
+//       console.error('Error fetching similar recipes:', error);
+//       return [];
+//     }
+//   };

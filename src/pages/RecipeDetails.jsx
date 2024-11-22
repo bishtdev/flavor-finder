@@ -15,9 +15,9 @@ const RecipeDetails = () => {
     const [error,setError] = useState(null)
     const [selectedDay, setSelectedDay] = useState('Monday')
     const [showNotification , setShowNotification] = useState(false)
+    const [similarRecipes, setSimilarRecipes] = useState([])
 
     const dispatch = useDispatch();
-
     const favorite = useSelector((state)=> state.favorites.items)
     const isFavorite = favorite.some((fav) => fav.id === parseInt(id))
 
@@ -35,9 +35,19 @@ const RecipeDetails = () => {
                 setLoading(false)
             }
         }
+
+        // to get similar recipes recommendations
+    // const getSimilarRecipes = async () =>{
+    //   const similar = await fetchSimilarRecipes(id)
+    //   setSimilarRecipes(similar)
+    //   }
+
+
         getRecipeDetails()
+        // getSimilarRecipes()
     },[id])
 
+    
     const handleFavoriteToggle = () => {
       if (isFavorite){
         dispatch(removeFavorite(parseInt(id))) //remove from favroite
@@ -65,7 +75,7 @@ const RecipeDetails = () => {
          {recipe && (
         <>
           
-          <div className="mb-4 pt-16 ">
+          <div className="mb-4 pt-24 ">
           <img src={recipe.image} alt={recipe.title} className="h-60 object-contain rounded mb-4 mx-auto shadow-lg" />
           <h1 className="text-2xl font-bold mb-4">{recipe.title}</h1>
             <label htmlFor="day" className="block text-lg font-semibold mb-2">
@@ -126,6 +136,25 @@ const RecipeDetails = () => {
           <p className="mb-4 text-justify">{recipe.instructions || 'No instructions provided.'}</p>
           </div>
          </div>
+
+          {/* Similar Recipes Section */}
+          {/* <div className="mt-6">
+            <h2 className="text-xl font-bold mb-4">Similar Recipes (Recommendations)</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {similarRecipes.map((similar) => (
+                <div key={similar.id} className="bg-white p-4 rounded shadow">
+                  <img src={`https://spoonacular.com/recipeImages/${similar.id}-312x231.jpg`} alt={similar.title} className="h-40 w-full object-cover rounded mb-2" />
+                  <h3 className="text-lg font-semibold mb-2">{similar.title}</h3>
+                  <Link
+                    to={`/recipe/${similar.id}`}
+                    className="bg-blue-500 text-white px-4 py-2 rounded block text-center"
+                  >
+                    View Recipe
+                  </Link>
+                </div>
+              ))}
+            </div>
+          </div> */}
         </>
       )}
 

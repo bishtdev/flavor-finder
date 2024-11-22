@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const SavedRecipes = () => {
   const favorites = useSelector((state)=> state.favorites.items)
   return (
-    <div className="p-1 md:p-4">
+    <div className="p-1 md:p-4 md:pt-24">
     <h1 className="text-2xl font-bold mb-4">Saved Recipes</h1>
     {favorites.length === 0 ? (
       <p>No saved recipes yet. Start adding some!</p>

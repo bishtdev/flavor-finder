@@ -4,6 +4,7 @@ import { auth } from '../firebase';
 import { signOut } from 'firebase/auth';
 import { Navigate } from 'react-router-dom';
 import Modal from '../Components/Modal';
+import logo from '../assets/app-logo.jpg'
 
 const Navbar = () => {
   const [user] = useAuthState(auth); // Get current user
@@ -29,7 +30,8 @@ const Navbar = () => {
    <div>
      <nav className="text-white font-bold p-4 absolute w-full z-50">
       <div className="flex justify-between items-center">
-        <h1 className="text-xl ">FLAVOR <span className='text-yellow-500 font-extrabold'>FINDER</span></h1>
+        {/* <h1 className="text-xl ">FLAVOR <span className='text-yellow-500 font-extrabold'>FINDER</span></h1> */}
+        <img src={logo} alt="" className='w-14 rounded-full' />
 
         {/* Hamburger Icon for Mobile */}
         <button
